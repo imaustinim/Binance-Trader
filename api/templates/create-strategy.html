@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock title %}
+
+{% block main %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md">
+        <div class="card">
+          <div class="card-body">
+          <h5 class="card-title">Add Payment</h5>
+          <form action="/api/strategy/create" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Pay monthly rent" name="test">
+              </div>
+              <div class="col-md-3">
+                <label for="title">Recurrance</label>
+                <input type="date" class="form-control" id="title" placeholder="Pay monthly rent">
+              </div>
+              <div class="col-md-3">
+                <label for="title">Repeat</label>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="once" name="once" class="custom-control-input" checked>
+                  <label class="custom-control-label" for="once">Once</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="every" name="every" class="custom-control-input">
+                  <label class="custom-control-label" for="every">Every</label>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="instructions">Instructions</label>
+                <textarea type="text" class="form-control" id="instructions" rows="3" placeholder="1. Go on the banking app on your phone..."></textarea>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="company">Company Name</label>
+                <input type="text" class="form-control" id="company_name" placeholder="Name">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="company">Phone Number</label>
+                <input type="text" class="form-control" id="company_number" placeholder="Phone number">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="company">Website</label>
+                <input type="text" class="form-control" id="company_url" placeholder="website">
+              </div>
+              <div class="col-md-6">
+                <label for="title">Payment Method</label>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="automatic" name="automatic" class="custom-control-input" checked>
+                  <label class="custom-control-label" for="automatic">Automatic</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="manual" name="manual" class="custom-control-input">
+                  <label class="custom-control-label" for="manual">Manual</label>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock main %}
